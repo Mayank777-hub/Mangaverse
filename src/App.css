@@ -1,0 +1,8 @@
+body {
+/*  background-image: url('/copy-transformed.png');*/
+background: linear-gradient(to bottom, red,rgb(19, 19, 126));
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 200vh; 
+}

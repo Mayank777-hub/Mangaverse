@@ -1,0 +1,174 @@
+.sidebar{
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+        .slide {
+            margin-top: -40vh;
+            height: 60vh;
+            border-radius: 50px;
+            width: 4vw;
+            background-color: black;
+            position: fixed;
+            transition: 0.5s ease;
+            left: -170px;
+            display: flex;
+            justify-content: center;
+            align-items:center;
+            flex-direction: column;
+            z-index: 10000;
+            border: 1px solid white;
+        }
+        .slide.see {
+          left: 10px; 
+}
+
+        .slide:hover {
+            width: 15vw;
+            border-radius: 0px;
+            height: 54vh;
+        }
+
+        ul li:hover {
+            width: 15vw;
+            border-radius: 0px;
+
+        }
+
+        h1 {
+            text-align: center;
+            margin: 0px;
+            padding: 15px;
+            color: blue;
+        }
+
+        .sidebarUl .sidebarLi {
+            list-style: none;
+            display: flex;
+            justify-content: left;
+            align-items: center;
+            padding: 20px;
+            color: white;
+            flex-direction: row;
+            gap: 5px;
+        }
+
+        .sidebarUl .sidebarLi .sidebarA {
+            list-style: none;
+            display: flex;
+            justify-content: left;
+            align-items: center;
+            color: white;
+            flex-direction: row;
+            gap: 20px;
+        }
+
+        .sidebarLi:hover {
+            background-color: red;
+            color: white;
+        }
+
+        .sidebarA:link {
+            color: #ffffff;
+        }
+
+        /* a:hover{
+            color: white;
+        }*/
+       
+         .btn {
+            position: absolute;
+            cursor: pointer;
+            left: 100px;
+            top: 325px;
+            font-size: 35px;
+            color: red;
+            opacity: 0.9;
+            background-color: black;
+             z-index: 9999;
+        }
+
+         .cancel {
+            text-align: center;
+            top: 17px;
+            z-index: 1111;
+            margin: 0px;
+            color: blue;
+            font-size: 35px;
+            display: flex;
+            padding: 5px;
+            justify-content: center;
+            flex-direction: row;
+            border: 1px solid black;
+            background-color: black;
+        }
+         
+        .cancel,
+        .btn:hover {
+            color: red;
+        }
+
+        .community
+        .category,
+        .update,
+        .set,
+        .sale,
+        .search {
+            display: none;
+            color: white;
+            opacity: 0;
+        }
+
+        .sidebarA{
+            text-decoration: none;
+        }
+
+       
+
+        .slide.see:hover .category,
+        .slide.see:hover .update,
+        .slide.see:hover .set,
+        .slide.see:hover .sale,
+        .slide.see:hover .community,
+        .slide.see:hover .search {
+            display: block;
+            opacity: 1;
+            transition: all 5s ease;
+        }
+        
+         .slide.see .category,
+        .slide.see .update,
+        .slide.see .set,
+        .slide.see .sale,
+        .slide.see .search,
+        .slide.see .community {
+          display: none;
+          opacity: 0;
+        }
+
+       
+        .in {
+            width: 170px;
+            height: 68px;
+            display: none;
+            object-fit: contain;
+            background-color: white;
+        }
+
+        .slide:hover .in {
+            display: block;
+            border: 1px solid white;
+        }
+
+        .do {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            flex-direction: row;
+
+        }
+
+         .slide:hover .cancel{
+            color: blue;
+        }

@@ -1,0 +1,167 @@
+@import url('https://fonts.googleapis.com/css2?family=Saira+Stencil+One&display=swap');
+.welcome{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  color: yellow;
+  width: 60vw;
+  height: 50vh;
+}
+.nameone{
+  color: yellow;
+  text-shadow: 2px 2px 4px red;
+   font-family:"Saira Stencil One", serif; 
+}
+.intro{
+  color: yellow;
+  text-shadow: 2px 2px 4px  red;
+}
+.present{
+    display: flex;
+    justify-content:right;
+    flex-direction: row;
+    width: 100vw;
+    height: 52vh;
+    border: 1px solid black;
+    background: linear-gradient(to left,rgb(106, 3, 3),blue, black);
+    gap: 0;
+}
+.Contan{
+    color: linear-gradient(to left,black);
+    width: 60vw;
+    height: 50vh;
+  display: flex;
+  justify-content: right;
+  align-items: center;
+}
+.card{
+    border: 1px solid black;
+    position: relative;
+    width: 40vw;
+    height: 33vh;
+    border: 1px solid rgb(8, 8, 67);
+    background-color: rgb(11, 231, 255);
+    border-radius: 5px;
+    transform: scale(1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    transition: all 0.5s ease;
+    cursor: pointer;
+    z-index: 0;
+    opacity: 0.9;
+}
+.card:hover,
+.card.active {
+transform: scale(1.2);
+border-color: red;
+opacity: 1;
+z-index: 100 !important;
+box-shadow: 2px 2px 3px rgb(195, 255, 0);
+}
+  .Contan .card:first-child {
+            transform: translateX(100px) scale(1);
+            z-index: 1;
+        }
+
+        .Contan .card:nth-child(2) {
+            transform: translateX(50px) scale(1);
+            z-index: 2;
+             width: 45vw;
+    height: 35vh;
+        }
+
+        .Contan .card:nth-child(3) {
+            transform: translateX(0) scale(1);
+            z-index: 3;
+             width: 45vw;
+    height: 39vh;
+        }
+
+        .Contan .card:nth-child(4) {
+            transform: translateX(-50px) scale(1);
+            z-index: 2;
+             width: 45vw;
+    height: 35vh;
+        }
+
+        .Contan .card:last-child {
+            transform: translateX(-100px) scale(1);
+            z-index: 1;
+        }
+
+   .Contan .card:nth-child(1):hover {
+            transform: translateX(100px) scale(1.1);
+        }
+
+        .Contan .card:nth-child(2):hover {
+            transform: translateX(50px) scale(1.1);
+        }
+
+        .Contan .card:nth-child(3):hover {
+            transform: translateX(0px) scale(1.1);
+        }
+        .Contan .card:nth-child(4):hover{
+             transform: translateX(-50px) scale(1.1);
+        }
+        .Contan .card:nth-child(5):hover{
+             transform: translateX(-100px) scale(1.1);
+        }
+
+.image {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    object-fit: cover;
+    z-index: 1;
+}
+.todo-card {
+    overflow: hidden;    /*  always use overflow with  width and height 100% */
+    width: 100%;
+    height: 100%;
+    position: relative;
+    display: block;
+    transition: transform 0.3s ease;
+}
+.total{
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.7);
+  padding: 15px;
+  transform: translateY(100%);
+  transition: transform 0.3s ease-in-out;
+  z-index: 20;
+}
+
+.card:hover .total,
+.card.active .total {
+  transform: translateY(0);
+}
+
+
+.Toname {
+  font-weight: bold;
+  color:yellow !important;
+  margin-bottom: 5px;
+}
+
+.Togenre{
+  font-size: 0.9rem;
+  margin-bottom: 3px;
+  color: white;
+  background-color: rgba(128, 128, 128,0.7);
+} .Todesc {
+  font-size: 0.9rem;
+  margin-bottom: 3px;
+  color: white;
+}
+
+ .card:hover .image {
+   transform: scale(1.05);
+ }

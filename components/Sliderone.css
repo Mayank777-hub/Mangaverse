@@ -1,0 +1,74 @@
+ @import url('https://fonts.googleapis.com/css2?family=Honk&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Trade+Winds&display=swap');
+        .sonecompo{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+        .inrogif {
+            display: flex;
+            justify-content: start;
+            align-items: start;
+            flex-direction: row;
+            width: 80vw;
+            height: 30vh;
+            border: none;
+            overflow: hidden;
+            gap: 20px;
+            flex-wrap: nowrap;
+             overflow-x: auto;
+             position: relative;
+        }
+
+        #gif {
+            background-color: black;
+            cursor: pointer;
+            border-radius: 125px;
+            position: relative;
+        }
+
+        .above {
+            position: absolute;
+            width: 150px;
+            height: 150px;
+            background: linear-gradient(to right,black);
+            z-index: 2;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            display: flex;
+            align-items: center;
+            color: yellow;
+            border-radius: 125px;
+            opacity: 1;
+            transition: opacity 0.3s;
+            font-size:xx-large;
+            font-family: "Honk", system-ui;
+             font-variation-settings:
+              "MORF" 15,
+              "SHLN" 50;
+        }
+
+        .above:hover{
+            opacity: 0;
+        }
+        .boxone {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: row;
+            z-index:1;
+            cursor: pointer;
+            gap: 150px;
+        }
+        .bush3{
+            font-family: "Trade Winds", system-ui;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: xx-large;
+            color:yellow;
+            width: calc(80vw + 2px);
+            margin-top: 1vh
+        }
