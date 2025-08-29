@@ -1,5 +1,7 @@
 import React from 'react'
 import "./Sliderone.css"
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faCircleArrowLeft,faCircleArrowRight } from '@fortawesome/free-solid-svg-icons'
 const Sliderone = () => {
   return (
     <>
@@ -96,10 +98,14 @@ const Sliderone = () => {
         </div>
     </div>
     </div>
-    <button className='btn1'>
-        <img src="" alt="" />
+    <div className='scrollandr'>
+        <button className='btn1'>
+        <FontAwesomeIcon icon={faCircleArrowLeft} size="3x" style={{ color: "yellow",borderRadius:"25px"}}/>
     </button>
-    <button className='btn1'></button>
+    <button className='btn2'>
+         <FontAwesomeIcon icon={faCircleArrowRight} size="3x" style={{color:"yellow",borderRadius:"25px"}}/>
+    </button>
+    </div>
     </>
   )
 }
