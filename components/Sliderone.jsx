@@ -1,13 +1,32 @@
-import React from 'react'
+import React, { useRef } from 'react'
 import "./Sliderone.css"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCircleArrowLeft,faCircleArrowRight } from '@fortawesome/free-solid-svg-icons'
 const Sliderone = () => {
+//    const HandleClickLeft = () => {
+//  const element = document.getElementsByClassName("inrogif")[0];
+//  element.scrollLeft -= 300;
+//};
+//
+//    const HandleClickRight = () => {
+//        const Right = document.getElementsByClassName("inrogif")[0];
+//        Right.scrollLeft += 300;
+//    };
+const scrollRef =useRef(null);
+const HandleClickLeft = () => {
+    if(scrollRef.current)
+        scrollRef.current.scrollLeft -= 160;
+}
+
+const HandleClickRight = () => {
+    if(scrollRef.current)
+        scrollRef.current.scrollLeft += 160;
+}
   return (
     <>
     <div className="sonecompo">
         <h3 class="bush3">Browse&nbsp;by&nbsp;Categories</h3>
-    <div className="inrogif">
+    <div className="inrogif" ref={scrollRef}>
         <div className="boxone">
             <img src="https://media1.tenor.com/m/-tLLUJNXlOYAAAAC/among-us-attack-on-titan.gif" alt="Gif1" width="150px"
                 height="150px" id="gif"/>
@@ -99,10 +118,10 @@ const Sliderone = () => {
     </div>
     </div>
     <div className='scrollandr'>
-        <button className='btn1'>
+        <button className='btn1' onClick={HandleClickLeft}>
         <FontAwesomeIcon icon={faCircleArrowLeft} size="3x" style={{ color: "yellow",borderRadius:"25px"}}/>
     </button>
-    <button className='btn2'>
+    <button className='btn2' onClick={HandleClickRight}>
          <FontAwesomeIcon icon={faCircleArrowRight} size="3x" style={{color:"yellow",borderRadius:"25px"}}/>
     </button>
     </div>

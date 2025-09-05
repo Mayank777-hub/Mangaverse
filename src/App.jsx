@@ -6,6 +6,9 @@ import Sidebar from '../components/Sidebar';
 import Footer from '../components/Footer';
 import Infinite from '../components/Infinite';
 import Sliderone from '../components/Sliderone';
+import { createBrowserRouter,RouterProvider} from 'react-router-dom'
+import Login from '../components/Login';
+
 const Todo = ({ props,t, isActive, onClick }) => {
   return (
     <>
@@ -62,9 +65,10 @@ const [shows, setshow] = useState([
      img : "https://m.media-amazon.com/images/M/MV5BYWFhOWMxNTYtZThiMi00ZmQ5LTlmODktN2QwNzUyZjMyZGQzXkEyXkFqcGc@._V1_.jpg"
   }
 ])
-
-  return (
-    <>
+   const router = createBrowserRouter([
+    {path:"/",
+      element:(
+<>
       <Navbar />
       <div className="present">
         <div className ="welcome">
@@ -87,7 +91,19 @@ const [shows, setshow] = useState([
       <Sliderone/>
       <Footer/>
     </>
-  );
+      ),
+    },
+{path:"/Login",
+  element:(
+    <>
+    <Navbar/>
+    <Login/>
+    </>
+  )
+},
+  ])
+return <RouterProvider router={router} />
 }
 
 export default App
+    
