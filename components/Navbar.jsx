@@ -29,15 +29,30 @@ const Navbar = () => {
   }
 
   useEffect(() => {
-  const response = fetch('https://api.countrystatecity.in/v1/countries', {
+  fetch('https://api.countrystatecity.in/v1/countries', {
   headers: { 'X-CSCAPI-KEY': 'c9f4cbc29b2c8dd5135db17d521b6e492f654e9d8a3f19f73bea3c9765d953bd' }
+  })
   .then(d => d.json())
-  .then(con => {setcountry(con.con)})
-})
+  .then(con => {setcountry(con)})
+
    .catch(error => console.log(error));
    
-  }, [third])
+  }, []);
   
+  const handlestate = (r)=>{
+    const constae = r.target.value;
+    setselectcountry(constae);
+   setstate([]);
+
+   fetch(`https://api.countrystatecity.in/v1/countries/${constae}/states`,{
+    headers :{'X-CSCAPI-KEY': 'c9f4cbc29b2c8dd5135db17d521b6e492f654e9d8a3f19f73bea3c9765d953bd'}
+   })
+    .then(res => res.json())
+    .then(data => {
+      setstate(data);
+    })
+    .catch(err => console.log(err));
+  };
   return (
     <div className={styles.container}>
       <div className={styles.change}>
@@ -67,14 +82,24 @@ const Navbar = () => {
                    <div className={styles.deopcoun}>
                 <label htmlFor="">Country</label>
                 &nbsp;&nbsp;&nbsp;&nbsp;
-              <select name="" id="" size="5">
-                <option value=""></option>
+              <select name="" id="" size="1" value={selectcountry} onChange={handlestate}>
+                <option value="">Country</option>
+                {
+                  country.map((ca,index)=>(
+                    <option value={ca.iso2} key={index}>{ca.name}</option>
+                  ))
+                }
               </select>
               </div>
               <div className={styles.deopstate}>
                 <label htmlFor="">State</label>
-              <select name="" id="">
-                <option value=""></option>
+              <select name="" id="" size='1'>
+                <option value="">State</option>
+                {
+                  state.map((cd,index)=>(
+                    <option value={cd.name} key={index}>{cd.name}</option>
+                  ))
+                }
               </select>
               </div>
               </div>
@@ -98,6 +123,7 @@ const Navbar = () => {
               <input type="checkbox" name="" id=""/>
               <span className='saveadd'>Save Address for Delivery</span>
              </div>
+             <button className={styles.addressbtn}>Submit</button>
             </div>
           )
           }
