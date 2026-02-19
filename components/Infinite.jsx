@@ -13,7 +13,7 @@ const Infinite = () => {
         <div className="item item7">
             <img src="/3864780-removebg-preview.png" width="190px" height="100px"  alt=""></img>
         </div>
-        <div class="item item8"><img src="/66186066521af25e7d9e43990fa8c659-removebg-preview.png" width="190px" height="100px" alt=""></img></div>
+        <div className="item item8"><img src="/66186066521af25e7d9e43990fa8c659-removebg-preview.png" width="190px" height="100px" alt=""></img></div>
     </div>
     </>
   )

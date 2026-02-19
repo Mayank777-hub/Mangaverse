@@ -25,7 +25,7 @@ const HandleClickRight = () => {
   return (
     <>
     <div className="sonecompo">
-        <h3 class="bush3">Browse&nbsp;by&nbsp;Categories</h3>
+        <h3 className="bush3">Browse&nbsp;by&nbsp;Categories</h3>
     <div className="inrogif" ref={scrollRef}>
         <div className="boxone">
             <img src="https://media1.tenor.com/m/-tLLUJNXlOYAAAAC/among-us-attack-on-titan.gif" alt="Gif1" width="150px"

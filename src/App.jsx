@@ -6,8 +6,11 @@ import Sidebar from '../components/Sidebar';
 import Footer from '../components/Footer';
 import Infinite from '../components/Infinite';
 import Sliderone from '../components/Sliderone';
+import Displayone from '../components/Displayone';
+import Displaytwo from '../components/Displaytwo';
 import { createBrowserRouter,RouterProvider} from 'react-router-dom'
 import Login from '../components/Login';
+import Searchresult from  '../components/bar';
 
 const Todo = ({ props,t, isActive, onClick }) => {
   return (
@@ -28,6 +31,8 @@ const Todo = ({ props,t, isActive, onClick }) => {
     </>
   );
 };
+
+
 function App() {
   const [first, setfirst] = useState(null);
 const [shows, setshow] = useState([
@@ -89,6 +94,8 @@ const [shows, setshow] = useState([
       <Infinite/>
       <Sidebar/>
       <Sliderone/>
+      <Displayone/>
+      <Displaytwo/>
       <Footer/>
     </>
       ),
@@ -101,6 +108,16 @@ const [shows, setshow] = useState([
     </>
   )
 },
+{
+  path:"/search",
+  element:(
+    <>
+    <Navbar/>
+    <Searchresult/>
+    <Footer/>
+    </>
+  )
+}
   ])
 return <RouterProvider router={router} />
 }

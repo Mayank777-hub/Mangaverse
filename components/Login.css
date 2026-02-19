@@ -38,7 +38,26 @@
             gap: 25px;
             margin-top: 2vh;
         }
-
+        .Signbtn{
+         width: 7vw;
+         height: 4vh;
+         border-radius: 5px;
+         background-color: rgb(31, 87, 179);
+         color: white;
+        }
+        .includelogin{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 30vw;
+            height: 50vh;
+            background-color: rgb(255, 255, 255);
+            flex-direction: column;
+                }
+                .Signbtn:hover{
+                    background-color: rgb(31, 87, 179,0.8);
+                    cursor: pointer;
+                }
         .logs button:nth-child(1) {
             width: 15vw;
             height: 6vh;

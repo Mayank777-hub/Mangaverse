@@ -230,3 +230,95 @@ outline: none;
     height: 15px;
     right: 220px;
 }
+.adddia{
+    position: fixed;
+    top: 25%;
+    left: 35%;
+    background-color: rgb(32, 31, 31);
+    width: 40%;
+    height: 60vh;
+     display: flex;
+  justify-content: start;
+  align-items: center;
+  z-index: 999;
+  margin-right: 50px;
+  animation:popup 0.3s ease-out;
+  flex-direction: column;
+}
+@keyframes popup {
+    from{
+        transform: scale(0.8);
+        opacity: 0;
+    }
+    to{
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+.closeadd{
+    background-color: white;
+    border:none;
+    width: 3vw;
+    height: 3vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.closeadd:hover{
+    background-color: red;
+    color: white;
+}
+.Disadd{
+    background-color: rgb(46, 41, 41);
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    align-items: center;
+    margin-top: 0;
+}
+.spelladd{
+    display: flex;
+    font-size: larger;
+    justify-content: center;
+    align-items: center;
+    margin-left: calc(40vw / 2.5);
+}
+.upperaddcol{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: row;
+    width: 80%;
+    position: relative;
+    color: white;
+    background-color:rgb(46, 41, 41,0.7) ;
+    margin-top: 5%;
+}
+.secondcolmid{
+     display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: row;
+    width: 80%;
+    position: relative;
+    color: white;
+    background-color:rgb(46, 41, 41,0.7) ;
+    margin-top: 5%;
+    height: 5vh;
+}
+.middlecol{
+      display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: row;
+    width: 80%;
+    position: relative;
+    color: white;
+    background-color:rgb(46, 41, 41,0.7) ;
+    margin-top: 5%;
+    height: 10vh;
+}
+.Saveadd{
+    color: white;
+}

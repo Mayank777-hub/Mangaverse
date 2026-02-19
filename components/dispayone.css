@@ -1,0 +1,72 @@
+ .container {
+      border: 1px solid rgb(255, 255, 255);
+      width: 40vw;
+      height: 52vh;
+      margin: 25px;
+      color: yellow;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      grid-template-rows: 1fr 1fr;
+      display: relative;
+    }
+
+    .bibb {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      flex-direction: row;
+      border: 1px solid rgb(157, 255, 0);
+      width: 80vw;
+      margin: auto;
+      height: 60vh;
+      background-color: black;
+      margin-top: -50px;
+    }
+
+    .smallbox {
+      position: relative;
+    }
+
+    .smallbox img {
+      width: 144px;
+      height: 140px;
+      margin: 10px;
+      position: relative;
+      display: block;
+    }
+
+    .h3 {
+      position: absolute;
+      color: yellow;
+      margin-top: -460px;
+      margin-right: 550px;
+    }
+
+    .secondstate {
+      position: absolute;
+      color: yellow;
+      margin-top: -460px;
+      margin-left: 550px;
+    }
+
+    .intro {
+      display: flex;
+      justify-content: center;
+      text-align: center;
+      align-items: center;
+      flex-direction: column;
+      margin-top: 5px;
+    }
+
+    .deals {
+      position: absolute;
+      border: 1px soild blue;
+      color: yellow;
+      background-color: red;
+       z-index: 10;
+       top: 10px;
+       left: 10px;
+    }
+    .smallbox:hover .deals{
+      visibility: hidden;opacity: 0;
+    }

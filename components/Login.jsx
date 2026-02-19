@@ -3,36 +3,43 @@ import "./Login.css"
 const Login = () => {
   return (
     <>
-    <div class="showimg">
-        <div class="logincolumn">
+    <div className="showimg">
+        <div className="logincolumn">
             <img src="/Manga-removebg-preview.svg" id="logo" alt="CompanyLogo"/>
-        <span><label for="">Username</label>
+            <div className="includelogin">
+              <span><label htmlFor="Username">Username</label>
+              &nbsp;&nbsp;&nbsp;
             <input type="text" placeholder="Username"/></span>
-            <span><label for="">Password</label>
+            <br />
+            <span><label htmlFor="Password">Password</label>
+            &nbsp;&nbsp;&nbsp;
             <input type="text" placeholder="Password"/></span>
+            <br />
             <span><input type="checkbox" value=""/>
             <span>By Continuing you Accept Our Term & Condition and Policies</span></span>
-            
-            <button>Login in</button>
+            <br />
+            <button className='Signbtn'>Login in</button>
             <a href="">Forget Password</a>
-            <div class="logs">
+            <div className="logs">
                 <button>
                     <img src="/google.png" alt="google" width="30px" height="30px"/>
                     Sign-in with Google</button>
                 <button>
                     <img src="/twitter.png" alt="x" width="30px" height="30px"/>Sign-in with X</button>
             </div>
-            <span class="spanall">
+            <span className="spanall">
                 <a href="">New to MangaVerse</a>
-                <div class="recovery">
-                    <img src="/recovery.png" alt="" class="recov"/>
+                <div className="recovery">
+                    <img src="/recovery.png" alt="" className="recov"/>
                     <a href="">
                         Account Recovery
                     </a>
                 </div>
             </span>
+            </div>
+        
         </div>
-        <div class="containsimg">
+        <div className="containsimg">
             <img src="/Untitled design (4).png" alt="bgi"/>
         </div>
     </div>
