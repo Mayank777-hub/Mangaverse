@@ -9,6 +9,7 @@ const Navbar = () => {
   const [dialog,setdialog] = useState(false);
   const[country,setcountry] = useState([]);
   const[state,setstate] = useState([]);
+  const[phone,setphone] = useState("");
   const[selectcountry,setselectcountry] = useState("");
   const move = useNavigate(); const loc = useLocation();
 
@@ -83,7 +84,7 @@ const Navbar = () => {
                 <label htmlFor="">Country</label>
                 &nbsp;&nbsp;&nbsp;&nbsp;
               <select name="" id="" size="1" value={selectcountry} onChange={handlestate}>
-                <option value="">Country</option>
+                <option value="" disabled>Country</option>
                 {
                   country.map((ca,index)=>(
                     <option value={ca.iso2} key={index}>{ca.name}</option>
@@ -94,7 +95,7 @@ const Navbar = () => {
               <div className={styles.deopstate}>
                 <label htmlFor="">State</label>
               <select name="" id="" size='1'>
-                <option value="">State</option>
+                <option value="" disabled>State</option>
                 {
                   state.map((cd,index)=>(
                     <option value={cd.name} key={index}>{cd.name}</option>
@@ -106,7 +107,8 @@ const Navbar = () => {
              <div className={styles.secondcolmid}>
                <div className={styles.deopaddres}>
                 <label htmlFor="">Address</label>
-                <input type="text" placeholder='Enter your address here...' />
+                &nbsp;&nbsp;&nbsp;
+                <input type="text" placeholder='Enter your address here...' className={styles.addtab}/>
               </div>
              </div>
              <div className={styles.middlecol}>
@@ -116,7 +118,11 @@ const Navbar = () => {
               </div>
               <div className={styles.phoneadd}>
                 <label htmlFor=""> <FontAwesomeIcon icon={faPhone}/>Phone number</label>
-                <input type="number" name="" id="" />
+                <input type="tel" inputMode = 'numeric'  value={phone}  maxLength={10} onChange={(e)=>{
+                  const cos= e.target.value.replace(/\D/g,"");
+                  setphone(cos);
+                }}
+                  />
               </div>
              </div>
              <div className={styles.Saveadd}>

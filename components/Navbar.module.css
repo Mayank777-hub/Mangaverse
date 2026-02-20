@@ -328,5 +328,9 @@ outline: none;
 }
 .addressbtn:hover{
     background-color: rgb(255, 255, 255,0.7);
-    color: black;
+    color: white;
+}
+.addtab{
+    width: 500px;
+    height: 4vh;
 }
