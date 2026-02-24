@@ -11,6 +11,7 @@ import Displaytwo from '../components/Displaytwo';
 import { createBrowserRouter,RouterProvider} from 'react-router-dom'
 import Login from '../components/Login';
 import Searchresult from  '../components/bar';
+import Kodomo from '../components/Kodomo';
 
 const Todo = ({ props,t, isActive, onClick }) => {
   return (
@@ -105,6 +106,15 @@ const [shows, setshow] = useState([
     <>
     <Navbar/>
     <Login/>
+    </>
+  )
+},
+{path:"/category/:cat",
+  element:(
+    <>
+    <Navbar/>
+    <Kodomo/>
+    <Footer/>
     </>
   )
 },

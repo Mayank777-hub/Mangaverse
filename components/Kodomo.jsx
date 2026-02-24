@@ -38,7 +38,14 @@ const Kodomo = () => {
   <div>
     {loading && <Loader/>}
     {!loading && search.length === 0 && (<p>Not Found</p>)}
-     <div className="searchboxes"></div>
+    {search.map(s => (
+     <div className="searchboxes">
+      <img src={search.image} key={search.id} style={{width:"100%",height: "260px",
+                objectFit: "cover"}} />
+                <h3>{product.title}</h3>
+            <p>₹ {product.price}</p>
+     </div>
+     ))}
   </div>
   )
 }

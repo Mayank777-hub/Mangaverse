@@ -25,7 +25,14 @@ const bar = () => {
     setError(null);
 
     fetch(`http://localhost:3900/api/products/test?search=${que}`)
-      .then(res => res.json())
+      .then(res =>{
+        if(!res.ok){
+          return res.json().then(err=> {
+            throw new Error(err.message|| "Unable to connect due to network issue")
+          });
+        }
+        return res.json();
+      })
       .then(d => {
         
         let remainsp = Date.now()- starting;
@@ -39,6 +46,9 @@ const bar = () => {
       })
       .catch(err => {
         console.log(err);
+
+         let remainsp = Date.now()- starting;
+        let remain = Math.max(3000-remainsp,0);
         setTimeout(() => {
            setError(err.message);
         setLoading(false)
