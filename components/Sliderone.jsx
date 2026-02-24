@@ -39,11 +39,11 @@ const move = (cat=>{
                 Shonen
             </div>
         </div>
-        <div className="boxone" onClick={() => move("Shonen")}>
-            <img src="https://media1.tenor.com/m/RHgUyUYav98AAAAC/anime.gif" alt="Gif2" width="150px" height="150px"
+        <div className="boxone" onClick={() => move("Shojo")}>
+            <img src="https://media.tenor.com/ciXVEY9J2BUAAAAi/sailor-moon-usagi.gif" alt="Gif2" width="150px" height="150px"
                 id="gif"/>
             <div className="above">
-                Shonen
+                Shojo
             </div>
         </div>
         <div className="boxone" onClick={() => move("Kodomo")}>
@@ -97,7 +97,7 @@ const move = (cat=>{
             </div>
         </div>
 
-        <div className="boxone" onClick={() => move("R-Harem")}>
+        <div className="boxone" onClick={() => move("Reverse Harem")}>
             <img src="https://media1.tenor.com/m/n7Td88aoYdYAAAAC/ohshc.gif" alt="Gif1" width="150px" height="150px"
                 id="gif"/>
             <div className="above">
@@ -105,7 +105,7 @@ const move = (cat=>{
             </div>
         </div>
 
-        <div className="boxone" onClick={() => move("Shonen")}>
+        <div className="boxone" onClick={() => move("Hentai")}>
             <img src="https://media1.tenor.com/m/jlhYA4M2OC8AAAAC/sakura-kinomoto-cardcaptor-sakura.gif" alt="Gif1"
                 width="150px" height="150px" id="gif"/>
             <div className="above">

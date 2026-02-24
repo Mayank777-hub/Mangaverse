@@ -3,7 +3,7 @@ import { React,useState,useEffect,useMemo } from 'react'
 import { useParams } from 'react-router-dom'
 import Loader from './Loader'
 //import Navbar from './Navbar'
-
+import "./kodomo.css"
 
 const Kodomo = () => {
 const api = "http://localhost:3900/api/products";
@@ -17,7 +17,7 @@ const {cat} = useParams()
         try {
             const res = await fetch(`${api}/test?Genre=${cat}`)
             const data = await res.json()
-             const mapanime = (data.allmangadata || []).map(a => ({
+             const mapanime = (data.allmangadata || []).map(item => ({
          _id: item._id,
           title: item.Type?.[0]?.Title,
           image: item.Type?.[0]?.Animeurl,
@@ -34,15 +34,15 @@ const {cat} = useParams()
     }, [cat])
     
   return (
-  <div>
+  <div className='searchcontainer'>
     {loading && <Loader/>}
     {!loading && search.length === 0 && <p>Not Found</p>}
-    {!loading && search.map(s => (
-     <div className="searchboxes">
-      <img src={search.image} key={search.id} style={{width:"100%",height: "260px",
-                objectFit: "cover"}} />
-                <h3>{product.title}</h3>
-            <p>₹ {product.price}</p>
+    {!loading && search.map(search => (  // here inside search is different from map search not be confude
+     <div className="searchboxes" key={search._id}>
+      <img className ="catbox" src={search.image}  style={{width:"100%",height: "260px",
+                objectFit: "contain"}} />
+                <h3>{search.title}</h3>
+            <p>₹ {search.price}</p>
      </div>
      ))}
   </div>
