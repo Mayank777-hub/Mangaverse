@@ -1,7 +1,7 @@
 import React,{ useState }  from 'react'
 import Navbar from "../components/Navbar"
 import "./todo.css"
-import "./app.css"
+import "./App.css"
 import Sidebar from '../components/Sidebar';
 import Footer from '../components/Footer';
 import Infinite from '../components/Infinite';

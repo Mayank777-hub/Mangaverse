@@ -24,7 +24,7 @@
 }
 
 .searchboxes:hover {
-  box-shadow: 0 0 8px rgba(255, 165, 0, 0.5); 
+  box-shadow: 0 0 8px aliceblue; 
   z-index: 999;
 }
 
