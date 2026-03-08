@@ -1,4 +1,5 @@
 import React,{ useState }  from 'react'
+import ReactGA  from 'react-ga4'
 import Navbar from "../components/Navbar"
 import "./todo.css"
 import "./App.css"
@@ -12,6 +13,9 @@ import { createBrowserRouter,RouterProvider} from 'react-router-dom'
 import Login from '../components/Login';
 import Searchresult from  '../components/bar';
 import Kodomo from '../components/Kodomo';
+
+ReactGA.initialize('G-CWPCXJ5ELQ');
+ReactGA.send('pageview');
 
 const Todo = ({ props,t, isActive, onClick }) => {
   return (

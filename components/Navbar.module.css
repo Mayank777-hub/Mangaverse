@@ -317,7 +317,7 @@ outline: none;
     color: white;
     background-color:rgb(46, 41, 41,0.7) ;
     margin-top: 5%;
-    height: 10vh;
+    height: 6vh;
 }
 .Saveadd{
     color: white;
@@ -333,4 +333,10 @@ outline: none;
 .addtab{
     width: 500px;
     height: 4vh;
+}
+.mapuser{
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    height: 250px;
 }

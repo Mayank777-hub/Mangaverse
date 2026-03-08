@@ -6,21 +6,23 @@ import { faBell, faCartShopping, faMagnifyingGlass, faXmark } from '@fortawesome
 import { faPhone } from '@fortawesome/free-solid-svg-icons/faPhone'
 const Navbar = () => {
   const [search, setsearch] = useState("");
-  const [dialog,setdialog] = useState(false);
-  const[country,setcountry] = useState([]);
-  const[state,setstate] = useState([]);
-  const[phone,setphone] = useState("");
-  const[selectcountry,setselectcountry] = useState("");
+  const [checkload, setcheckload] = useState(false);
+  const [address, setaddress] = useState("");
+  const [dialog, setdialog] = useState(false);
+  const [country, setcountry] = useState([]);
+  const [state, setstate] = useState([]);
+  const [phone, setphone] = useState("");
+  const [selectcountry, setselectcountry] = useState("");
   const move = useNavigate(); const loc = useLocation();
 
   useEffect(() => {
     const params = new URLSearchParams(loc.search);
     const query = params.get('query');
-    
+
     if (query) {
-      setsearch(query); 
+      setsearch(query);
     } else if (loc.pathname === '/') {
-      setsearch(''); 
+      setsearch('');
     }
   }, [loc.search, loc.pathname]);
   const searchuser = (e) => {
@@ -30,29 +32,33 @@ const Navbar = () => {
   }
 
   useEffect(() => {
-  fetch('https://api.countrystatecity.in/v1/countries', {
-  headers: { 'X-CSCAPI-KEY': 'c9f4cbc29b2c8dd5135db17d521b6e492f654e9d8a3f19f73bea3c9765d953bd' }
-  })
-  .then(d => d.json())
-  .then(con => {setcountry(con)})
+    setcheckload(false);
+  }, [address]);
 
-   .catch(error => console.log(error));
-   
+  useEffect(() => {
+    fetch('https://api.countrystatecity.in/v1/countries', {
+      headers: { 'X-CSCAPI-KEY': 'c9f4cbc29b2c8dd5135db17d521b6e492f654e9d8a3f19f73bea3c9765d953bd' }
+    })
+      .then(d => d.json())
+      .then(con => { setcountry(con) })
+
+      .catch(error => console.log(error));
+
   }, []);
-  
-  const handlestate = (r)=>{
+
+  const handlestate = (r) => {
     const constae = r.target.value;
     setselectcountry(constae);
-   setstate([]);
+    setstate([]);
 
-   fetch(`https://api.countrystatecity.in/v1/countries/${constae}/states`,{
-    headers :{'X-CSCAPI-KEY': 'c9f4cbc29b2c8dd5135db17d521b6e492f654e9d8a3f19f73bea3c9765d953bd'}
-   })
-    .then(res => res.json())
-    .then(data => {
-      setstate(data);
+    fetch(`https://api.countrystatecity.in/v1/countries/${constae}/states`, {
+      headers: { 'X-CSCAPI-KEY': 'c9f4cbc29b2c8dd5135db17d521b6e492f654e9d8a3f19f73bea3c9765d953bd' }
     })
-    .catch(err => console.log(err));
+      .then(res => res.json())
+      .then(data => {
+        setstate(data);
+      })
+      .catch(err => console.log(err));
   };
   return (
     <div className={styles.container}>
@@ -70,66 +76,90 @@ const Navbar = () => {
           <FontAwesomeIcon icon={faMagnifyingGlass} className={styles.magnify} />
         </div>
         <div className={styles.location}>
-          <p onClick={()=>setdialog(true)}>Customer Address</p>
-          { dialog && (
+          <p onClick={() => setdialog(true)}>Customer Address</p>
+          {dialog && (
             <div className={styles.adddia}>
               <div className={styles.Disadd}>
                 <span className={styles.spelladd}><b>Update Address</b></span>
-                <button className={styles.closeadd} onClick={()=>setdialog(false)}>
-                <FontAwesomeIcon icon={ faXmark} />
-              </button>
+                <button className={styles.closeadd} onClick={() => setdialog(false)}>
+                  <FontAwesomeIcon icon={faXmark} />
+                </button>
               </div>
               <div className={styles.upperaddcol}>
-                   <div className={styles.deopcoun}>
-                <label htmlFor="">Country</label>
-                &nbsp;&nbsp;&nbsp;&nbsp;
-              <select name="" id="" size="1" value={selectcountry} onChange={handlestate}>
-                <option value="" disabled>Country</option>
-                {
-                  country.map((ca,index)=>(
-                    <option value={ca.iso2} key={index}>{ca.name}</option>
-                  ))
-                }
-              </select>
+                <div className={styles.deopcoun}>
+                  <label htmlFor="">Country</label>
+                  &nbsp;&nbsp;&nbsp;&nbsp;
+                  <select name="" id="" size="1" value={selectcountry} onChange={handlestate}>
+                    <option value="" disabled>Country</option>
+                    {
+                      country.map((ca, index) => (
+                        <option value={ca.iso2} key={index}>{ca.name}</option>
+                      ))
+                    }
+                  </select>
+                </div>
+                <div className={styles.deopstate}>
+                  <label htmlFor="">State</label>
+                  <select name="" id="" size='1'>
+                    <option value="" disabled>State</option>
+                    {
+                      state.map((cd, index) => (
+                        <option value={cd.name} key={index}>{cd.name}</option>
+                      ))
+                    }
+                  </select>
+                </div>
               </div>
-              <div className={styles.deopstate}>
-                <label htmlFor="">State</label>
-              <select name="" id="" size='1'>
-                <option value="" disabled>State</option>
-                {
-                  state.map((cd,index)=>(
-                    <option value={cd.name} key={index}>{cd.name}</option>
-                  ))
-                }
-              </select>
+              <div className={styles.secondcolmid}>
+                <div className={styles.deopaddres}>
+                  <label htmlFor="">Address</label>
+                  &nbsp;&nbsp;&nbsp;
+                  <input type="text" placeholder='Enter your address here...' className={styles.addtab} value={address} onChange={(e) => setaddress(e.target.value)} />
+                </div>
               </div>
-              </div>
-             <div className={styles.secondcolmid}>
-               <div className={styles.deopaddres}>
-                <label htmlFor="">Address</label>
-                &nbsp;&nbsp;&nbsp;
-                <input type="text" placeholder='Enter your address here...' className={styles.addtab}/>
-              </div>
-             </div>
-             <div className={styles.middlecol}>
-              <div className={styles.deopaddres}>
-                <label htmlFor="">Landmark</label>
-                <input type="text" placeholder='' />
-              </div>
-              <div className={styles.phoneadd}>
-                <label htmlFor=""> <FontAwesomeIcon icon={faPhone}/>Phone number</label>
-                <input type="tel" inputMode = 'numeric'  value={phone}  maxLength={10} onChange={(e)=>{
-                  const cos= e.target.value.replace(/\D/g,"");
-                  setphone(cos);
-                }}
+              <div className={styles.middlecol}>
+                <div className={styles.deopaddres}>
+                  <label htmlFor="">Landmark</label>
+                  <input type="text" placeholder='' />
+                </div>
+                <div className={styles.phoneadd}>
+                  <label htmlFor=""> <FontAwesomeIcon icon={faPhone} />Phone number</label>
+                  <input type="tel" inputMode='numeric' value={phone} maxLength={10} onChange={(e) => {
+                    const cos = e.target.value.replace(/\D/g, "");
+                    setphone(cos);
+                  }}
                   />
+                </div>
               </div>
-             </div>
-             <div className={styles.Saveadd}>
-              <input type="checkbox" name="" id=""/>
-              <span className='saveadd'>Save Address for Delivery</span>
-             </div>
-             <button className={styles.addressbtn}>Submit</button>
+              <div className={styles.mapuser}>
+               <img
+    src="https://tse2.mm.bing.net/th/id/OIP.ZNv50soSihsrjL54GHT7HgHaEK?pid=Api&P=0&h=220"
+    alt=""
+    style={{
+      position: "absolute", top: 0, left: 0,
+      width: "100%", height: "250px", objectFit: "cover",
+      display: checkload ? "none" : "block",  
+      zIndex: 1
+    }}
+  />
+                {address && (
+                 <iframe
+  key={address}
+  width="100%"
+  height="250"
+  style={{ border: 0, position: "absolute", zIndex: 2 }}
+  loading="lazy"
+  allowFullScreen
+  src={`https://maps.google.com/maps?q=${encodeURIComponent(address)}&output=embed`}
+  onLoad={() => setcheckload(true)}
+></iframe>
+                )}
+              </div>
+              <div className={styles.Saveadd}>
+                <input type="checkbox" name="" id="" />
+                <span className='saveadd'>Save Address for Delivery</span>
+              </div>
+              <button className={styles.addressbtn}>Submit</button>
             </div>
           )
           }
