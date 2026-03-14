@@ -57,7 +57,7 @@ const bar = () => {
   }, [que])
 
   useEffect(() => {
-    if(product && !Loading){
+    if(product && !Loading && product.length > 0){
 console.log('Full product data:', product[0]);
     console.log('Type array:', product[0].Type);
     console.log('First Type item:', product[0].Type?.[0]);
@@ -177,8 +177,8 @@ console.log('Full product data:', product[0]);
             </div>
             <div className="written">written by {item.Author}</div>
             <div className="flxm"><span>Overall Rated-&nbsp;<span>4.5</span><i className="fa-solid fa-star"
-              style={{color: "#FFD43B"}}></i><i className="fa-solid fa-star" style={{color: "#FFD43B"}}></i><i
-                className="fa-solid fa-star" style={{color: "#FFD43B"}}></i><i className="fa-solid fa-star"
+              style={{color: "rgb(255, 212, 59)"}}></i><i className="fa-solid fa-star" style={{color: "#FFD43B"}}></i><i
+                className="fa-solid fa-star" style={{color: "rgb(255, 212, 59)"}}></i><i className="fa-solid fa-star"
                   style={{color: "#FFD43B"}}></i><i className="fa-solid fa-star-half" style={{color: "#FFD43B"}}></i></span>
               <span>{item.Reviewers_detail?.length || 0}  <span>Ratings</span></span>
               <span>{item.No_of_Likes || 0}<span>Likes</span></span>
@@ -311,12 +311,13 @@ console.log('Full product data:', product[0]);
            <div className="di">
                         BookSize :- <span>{item.Size?.join(' x ') || 'N/A'} cm</span>
                         <div className="age">Age Status :-<span>{item.Status_age_wise || 'N/A'}</span></div>
-                        <div className="Type">Type:- <span>{product.Genre || 'N/A'}</span></div>
+<div className="Type">Type:- <span>{rawItem.Genre || 'N/A'}</span></div>
+
                         <div className="weight">Net Weight :-<span>N/A</span></div>
                         <div className="publishers">publishers :-<span>{item.Publishers?.[0] || 'N/A'}</span></div>
                         <div className="isbn">ISBN:- <span>N/A</span></div>
                         <div className="lan">Language:- <span>{item.Language || 'N/A'}</span></div>
-                        <div className="itemtype">Item-type:- <span>{product.ItemType || 'N/A'}</span></div>
+                       <div className="itemtype">Item-type:- <span>{rawItem.ItemType || 'N/A'}</span></div>
                         <div className="originated">Originated-in :- <span>N/A</span></div>
             <div className="award">
               <h5>Awards/Achievements</h5>
