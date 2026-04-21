@@ -146,6 +146,8 @@ const bar = () => {
               localStorage.setItem("coupons", JSON.stringify([...old, conj.coupon]));
               alert(`Surprise! Coupon: ${conj.coupon.vouchget}`);
             } else {
+
+              
               alert("Payment successfull.Happy Shopping ;-)");
             }
           } else {
