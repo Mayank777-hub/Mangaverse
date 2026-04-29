@@ -1,0 +1,21 @@
+.catimg{
+    width: 240px;
+    height: 140px;
+}
+.overcat{
+    border-color: whitesmoke;
+    min-width: 240px; 
+    flex-shrink: 0;  
+}
+.overcat p{
+    color: yellow;
+}
+.catcontainer {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    flex-direction: row;
+    overflow-x: scroll;
+     gap: 12px;    
+     scroll-behavior: smooth;
+}

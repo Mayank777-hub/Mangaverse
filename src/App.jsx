@@ -13,6 +13,7 @@ import { createBrowserRouter,RouterProvider} from 'react-router-dom'
 import Login from '../components/Login';
 import Searchresult from  '../components/bar';
 import Kodomo from '../components/Kodomo';
+import Catslide from '../components/Catslide'
 
 ReactGA.initialize('G-CWPCXJ5ELQ');
 ReactGA.send('pageview');
@@ -101,6 +102,7 @@ const [shows, setshow] = useState([
       <Sliderone/>
       <Displayone/>
       <Displaytwo/>
+      <Catslide/>  
       <Footer/>
     </>
       ),
