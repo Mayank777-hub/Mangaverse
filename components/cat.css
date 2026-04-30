@@ -3,19 +3,116 @@
     height: 140px;
 }
 .overcat{
-    border-color: whitesmoke;
+    border: 1px solid white ;
     min-width: 240px; 
     flex-shrink: 0;  
+    width: 280px;
+    height: 180px;
+    margin: auto;
+}
+.catbtn{
+    margin-left: 38px;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    gap: 5px;
+}
+.catbtns {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    display: flex;
+    justify-content: space-between;align-items: center;
+    z-index: 1;
+    opacity: 0;
+    visibility: hidden;
+    transition: transform 0.3s ease-in;
+    transform: translateX(-10px);
+}
+ .catbtns .leftc{
+width: 3vw;
+height: 5vh;
+background-color: rgb(17, 17, 186);
+color: white;
+cursor: pointer;
+border-radius: 25px;
+scroll-behavior: smooth;
+font-size: x-large;
+display: flex;
+justify-content: center;align-items: center;
+}
+ .catbtns .rightc{
+    width: 3vw;
+height: 5vh;
+background-color: rgb(17, 17, 186);
+color: white;
+cursor: pointer;
+border-radius: 25px;
+scroll-behavior: smooth;
+font-size: x-large;
+display: flex;justify-content: center;align-items: center;
+}
+
+.changeui {
+    display: flex;        
+    flex-direction: row;
+    gap: 12px;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
 }
 .overcat p{
     color: yellow;
+    width:240px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.cat-card {
+    flex-shrink: 0;
+    width: 148px;
+}
+.catclick {
+    background-color: blue;
+    color: white;
+}
+.catclick .isActive{
+    background-color: blue;
+    opacity:0.6;
+    color: white;
+}
+.catclick:hover{
+     background-color: rgb(0, 0, 255,0.7);
+    opacity:1;
+    color: rgb(255, 255, 255,0.7);
 }
 .catcontainer {
     display: flex;
     justify-content: start;
     align-items: center;
     flex-direction: row;
-    overflow-x: scroll;
+    overflow: hidden;
      gap: 12px;    
      scroll-behavior: smooth;
+     width: 70vw;
+     height: 30vh;
+     border : 1px solid white;
+     margin: auto;
+     margin-top: 3vh;
+     position: relative;
+}
+.slidecatbox{
+    margin: auto;
+    margin-top: 25px;
+  display: flex;
+  background: linear-gradient(to left,black,rgb(61, 61, 61),black);
+  align-items: start;
+  flex-direction: column;
+  
+}
+.slidecatbox:hover {
+ .catbtns{
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(0);
+ }
 }

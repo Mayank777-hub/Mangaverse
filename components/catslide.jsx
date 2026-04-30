@@ -18,9 +18,9 @@ const category = [
    id: "Food",
    product : [
     {id:incrementnow(),img:"https://www.blippo.com/cdn/shop/files/20251204-130_1bf470ac-7f69-4a87-a08a-45a3bd8f5909.jpg?v=1774585833",item:"Biscuits"},
-    {id:incrementnow(),img:"https://www.japancandystore.com/cdn/shop/products/online_bl_-35_1_2_900x.jpg?v=1675390756",item:"Candies"},
+    {id:incrementnow(),img:"https://www.japancandystore.com/cdn/shop/files/20220111_231_900x.jpg?v=1774598280",item:"Candies"},
     {id:incrementnow(),img:"https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcRM7mO50mgj1_iWk5HQsI_POdNH1-9QdctSYiYRgt-4_joZt6LinGSGf63T5o78LPzkuXHOPNKlBakVwZT-3FJsDJXTxaXJkTMkdUNTEao",item:"Cakes"},
-    {id:incrementnow(),img:"https://www.japancandystore.com/cdn/shop/products/20211026_011_900x.jpg?v=1675388446",item:"Chocolates"},
+    {id:incrementnow(),img:"https://www.japancandystore.com/cdn/shop/files/20220811_054_900x.jpg?v=1774594468",item:"Chocolates"},
     {id:incrementnow(),img:"https://i.etsystatic.com/13335828/r/il/caaa54/5567713909/il_1588xN.5567713909_cqna.jpg",item:"Cereals"},
     {id:incrementnow(),img:"https://www.bbassets.com/media/uploads/p/l/40335363_1-nissin-pokemon-ramen-fun-masala-instant-noodles.jpg",item:"Instant Noddles"},
     {id:incrementnow(),img:"https://candyfunhouse.ca/cdn/shop/files/cfh-2024-one-piece-energy-drink-cherry-tart-zero-sugar-candy-funhouse.jpg?v=1713469825&width=750",item:"Beverages"},
@@ -33,7 +33,7 @@ const category = [
    id: "Decoratives",
    product : [
     {id:incrementnow(),img:"https://m.media-amazon.com/images/I/61aswNLQr8L._SX522_.jpg",item:"Anime-Figures"},
-    {id:incrementnow(),img:"https://m.media-amazon.com/images/I/51jxrjntIpL._SS40_.jpg",item:"Anime Tapestry"},
+    {id:incrementnow(),img:"https://m.media-amazon.com/images/I/8195i6kfdeL._AC_SL1500_.jpg",item:"Anime Tapestry"},
     {id:incrementnow(),img:"https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcQDCEMjUmyxzlI-2sG749qk2dKAZ8P1AaMxPJXgSq-BdV3QUiZnJNfWqTkCV5KN2ZxuE0_6w5My8OK8Rmc5Zaf24LyJin-sFw",item:"Bags"},
     {id:incrementnow(),img:"https://images.meesho.com/images/products/476225704/8uivg_512.avif?width=512",item:"Keychains"},
     {id:incrementnow(),img:"https://i.ebayimg.com/images/g/cqsAAOSwqzxhBUho/s-l1600.webp",item:"Lamps"},
@@ -66,6 +66,7 @@ const category = [
 const Catslide = () => {
   const [slider,Setslide] = useState(category[0]);
   const Slideref = useRef(null);
+  const scrollL = useRef(0);
   const checkcat = category.find(c=> c.id === slider.id);
   const handleslideL = (cate)=>{
     Setslide(cate);
@@ -73,10 +74,26 @@ const Catslide = () => {
       Slideref.current.scrollLeft = 0;
     }
   }
+  const scrollleft =()=>  {
+    if(Slideref.current){
+   Slideref.current.scrollLeft += 250;
+    }
+  }
+  const scrollright =()=>  {
+    if(Slideref.current){
+   Slideref.current.scrollLeft -= 250;
+    }
+  }
+  //function scrollleft(scrollL){
+  //  scrollL.current.scroll += 20;
+  //}
+  //function scrollleft(scrollL){
+  // scrollL.ref.scroll -= 20;
+  //}
   return (
     <>
-    <div className="slidecatbox" style={{backgroundColor:"black",width:"70vw",height:'50vh'}}>
-    <div className="catbtn" >
+    <div className="slidecatbox" style={{width:"75vw",height:'40vh'}}>
+    <div className="catbtn">
        {category.map((cat)=>{
        const isActive =  slider.id === cat.id;
        return (
@@ -93,15 +110,16 @@ const Catslide = () => {
        })
       }
     </div>
-    <div className="catcontainer">
+    <div className="catcontainer"  >
       <AnimatePresence mode ="wait">
        <motion.div
        key={slider.id}
-       initial={{opacity:0,x:30}}
-       animate={{opacity:1,x:0}}
-       exit={{opacity:0,x:-30}}
+       initial={{opacity:0,y:-30}}
+       animate={{opacity:1,y:0}}
+       exit={{opacity:0,y:30}}
        transition={{duration:0.3}}
        className="changeui"
+       ref={Slideref}
        >
         {slider.product.map((c)=>(
              <div className="overcat">
@@ -109,8 +127,13 @@ const Catslide = () => {
               <p>{c.item}</p>
              </div>
         ))}
+       
        </motion.div>
       </AnimatePresence>
+       <div className="catbtns">
+          <span className="leftc" onClick={scrollright}>{"<"}</span>
+<span className="rightc" onClick={scrollleft}>{">"}</span>
+        </div>
     </div>
     </div>
     </>
